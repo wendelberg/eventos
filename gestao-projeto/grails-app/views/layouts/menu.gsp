@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 2 | Starter</title>
+<title>Eventos Disca</title>
 <link rel="shortcut icon" href="${assetPath(src: 'favicon.ico')}"
 	type="image/x-icon">
 
@@ -90,9 +90,9 @@
 		<header class="main-header">
 
 			<!-- Logo -->
-			<a href="${createLink(uri: '/')}" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
-				<span class="logo-mini"><b>A</b>LT</span> <!-- logo for regular state and mobile devices -->
-				<span class="logo-lg"><b>Admin</b>LTE</span>
+			<a href="${createLink(uri: '/logodisca.png')}" class="logo"> <!-- mini logo for sidebar mini 50x50 pixels -->
+				<span class="logo-mini"><b>D</b>isca</span> <!-- logo for regular state and mobile devices -->
+				<span class="logo-lg"><b>Eventos</b>DISCA</span>
 			</a>
 
 			<!-- Header Navbar -->
@@ -110,17 +110,17 @@
 						<li class="dropdown notifications-menu">
 							<!-- Menu toggle button --> <a href="#" class="dropdown-toggle"
 							data-toggle="dropdown"> <i class="fa fa-bell-o"></i> <span
-								class="label label-warning">10</span>
+								class="label label-warning">0</span>
 						</a>
 							<ul class="dropdown-menu">
-								<li class="header">You have 10 notifications</li>
+								<li class="header">You have 0 notifications</li>
 								<li>
 									<!-- Inner Menu: contains the notifications -->
 									<ul class="menu">
 										<li>
-											<!-- start notification --> <a href="#"> <i
+											<!-- start notification <a href="#"> <i
 												class="fa fa-users text-aqua"></i> 5 new members joined
-												today
+												today --> 
 										</a>
 										</li>
 										<!-- end notification -->
@@ -169,7 +169,7 @@
 					<li><a href="${createLink(uri: '/dashboard')}"><i
 							class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
-					<li><a href="${createLink(uri: '/agenda')}"><i
+					<!--  <li><a href="${createLink(uri: '/agenda')}"><i
 							class="fa fa-calendar"></i> <span>Agenda</span></a></li>
 					
 					<li class="treeview"><a href="#"> <i class="fa fa-edit"></i>
@@ -192,9 +192,9 @@
 									class="fa fa-circle-o"></i>Tipo de Inscrição</a></li>
 						    <li><a href="${createLink(uri: '/tipoInscricaoValor/index')}"><i
 									class="fa fa-circle-o"></i>Valor Tipo de Inscrição</a></li>
-						</ul></li>
+						</ul></li>-->
 
-					<li class="treeview"><a href="#"> <i class="fa fa-edit"></i>
+					<!-- <li class="treeview"><a href="#"> <i class="fa fa-edit"></i>
 							<span>Cadastro</span> <i class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
@@ -202,33 +202,50 @@
 									class="fa fa-circle-o"></i>Atividade</a></li>
 							<li><a href="${createLink(uri: '/projeto/index')}"><i
 									class="fa fa-circle-o"></i>Projeto</a></li>
-						</ul></li>
-
+						</ul></li> -->
+					
 					<li class="treeview"><a href="#"> <i class="fa fa-gears"></i>
+							<span>Financeiro</span> <i class="fa fa-angle-left pull-right"></i>
+					</a>
+						<ul class="treeview-menu">							
+								 <sec:ifAnyGranted roles="ROLE_CREATE_INSCRICAO_PARCELAS,ROLE_READ_INSCRICAO_PARCELAS,ROLE_UPDATE_INSCRICAO_PARCELAS,ROLE_DELETE_INSCRICAO_PARCELAS">
+	                                  <li><a href="${createLink(uri: '/inscricaoParcelas/index')}"><i class="fa fa-circle-o"></i>Parcelas da Inscrição</a></li>
+                                 </sec:ifAnyGranted>
+						</ul></li>
+					
+					<!--  <li class="treeview"><a href="#"> <i class="fa fa-gears"></i>
 							<span>Configuração</span> <i class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<!-- <li><a href="${createLink(uri: '/situacaoAtividade/index')}"><i
-									class="fa fa-circle-o"></i>Situação Atividade</a></li> -->
+							 <li><a href="${createLink(uri: '/situacaoAtividade/index')}"><i
+									class="fa fa-circle-o"></i>Situação Atividade</a></li> 
 								 <sec:ifAnyGranted roles="ROLE_CREATE_SITUACAO_ATIVIDADE,ROLE_READ_SITUACAO_ATIVIDADE,ROLE_UPDATE_SITUACAO_ATIVIDADE,ROLE_DELETE_SITUACAO_ATIVIDADE">
 	                                  <li><a href="${createLink(uri: '/situacaoAtividade/index')}"><i class="fa fa-circle-o"></i>Situação Atividade</a></li>
                                  </sec:ifAnyGranted>
 							<li><a href="${createLink(uri: '/situacaoProjeto/index')}"><i
 									class="fa fa-circle-o"></i>Situação Projeto</a></li>
-						</ul></li>
-
-					<li class="treeview"><a href="#"> <i class="fa fa-users"></i>
+						</ul></li>-->
+					<sec:ifAnyGranted roles="ROLE_CREATE_USUARIO,ROLE_READ_USUARIO,ROLE_UPDATE_USUARIO,ROLE_DELETE_USUARIO,ROLE_CREATE_USUARIO_GRUPO,ROLE_READ_USUARIO_GRUPO,ROLE_UPDATE_USUARIO_GRUPO,ROLE_DELETE_USUARIO_GRUPO,ROLE_UPDATE_PERMISSAO_ACESSO">
+				 	<li class="treeview"><a href="#"> <i class="fa fa-users"></i>
 							<span>Controle de Acesso</span> <i
 							class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
+							<sec:ifAnyGranted roles="ROLE_CREATE_USUARIO,ROLE_READ_USUARIO,ROLE_UPDATE_USUARIO,ROLE_DELETE_USUARIO">
 							<li><a href="${createLink(uri: '/usuario/index')}"><i
 									class="fa fa-circle-o"></i>Usuário</a></li>
+							</sec:ifAnyGranted>
+							<sec:ifAnyGranted roles="ROLE_CREATE_USUARIO_GRUPO,ROLE_READ_USUARIO_GRUPO,ROLE_UPDATE_USUARIO_GRUPO,ROLE_DELETE_USUARIO_GRUPO">
 							<li><a href="${createLink(uri: '/usuarioGrupo/index')}"><i
 									class="fa fa-circle-o"></i>Grupo Usuário</a></li>
+							</sec:ifAnyGranted>
+							<sec:ifAnyGranted roles="ROLE_UPDATE_PERMISSAO_ACESSO">
 							<li><a href="${createLink(uri: '/permissaoAcesso/index')}"><i
 									class="fa fa-circle-o"></i>Permissão Acesso</a></li>
-						</ul></li>
+							</sec:ifAnyGranted>
+						</ul>
+					</li>
+					</sec:ifAnyGranted>
 				</ul>
 				<!-- /.sidebar-menu -->
 			</section>

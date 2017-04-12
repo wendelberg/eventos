@@ -443,7 +443,7 @@
 	</div>
 	<!-- /.login-box -->
 
-	<script type='text/javascript'>
+	<script type="text/javascript">
 		(function() {
 			$(".select2").select2();
 
@@ -458,17 +458,16 @@
 	            buscaCep(cepVal);
 	        });
 			
-			document.forms['loginForm'].elements['usuario.username'].focus();
-			$("#div_login").hide()
+			document.forms['loginForm'].elements['usuario.nome'].focus();
+			//$("#div_login").hide()
 			$("#div_endereco").hide()
-			//$("#div_inscricao").hide()
+			$("#div_inscricao").hide()
 		})();
 
 		function retornoCadastrarSalvar(data){
 
 			$.notify(data.mensagem, data.type);
 			if (data.type == "success") {
-				console.log(data);
 				$("#idCliente").val(data.id);
 				$("#idCliente2").val(data.id);
 				$("#id").val(data.id);
@@ -476,9 +475,10 @@
 
 				$("#div_endereco").show()
 				$("#div_login").hide()
+				document.forms['enderecoForm'].elements['endereco.nome'].focus();
 			}
 			
-		}
+		};
 
 		function retornoEnderecoSalvar(data){
 			$.notify(data.mensagem, data.type);
@@ -490,21 +490,21 @@
 				
 			}
 			
-		}
+		};
 
 		function voltarCadastro(){
 		
 			$("#div_endereco").hide()
 			$("#div_login").show()
 		
-		}
+		};
 		
 		function voltarEndereco(){
 		
 			$("#div_inscricao").hide()
 			$("#div_endereco").show()
 		
-		}
+		};
 		
 		function buscaCep(cepVal) {
 	        
@@ -513,84 +513,74 @@
 	            url : "http://api.postmon.com.br/v1/cep/" + cepVal,
 	            data : {},
 	            success : function(data) {
-	                console.log(data);
-	                
+	            	                
 	                campos(data);
 	            },
 	            error : function(data) {
 	             //   alert('erro: ' + data);
 	            }
-	        });
+	    	});  
 	          
-	      }
+	     };
 	        
-	        function campos(data) {
+        function campos(data) {
 	            
-	            $("#bairro").val(data.bairro);
+            $("#bairro").val(data.bairro);	            
+            $("#cidade").val(data.cidade);
+            $("#uf").val(data.estado).trigger("change");        
+            $("#rua").val(data.logradouro);
+            $("#numero").focus();
 	            
-	            $("#cidade").val(data.cidade);
-	            
-	            $("#uf").val(data.estado).trigger("change");
+        };
 
-	           // $("#uf").select2().select2('text',data.estado_info.nome);
-	            
-	            $("#rua").val(data.logradouro);
+        function buscaDadosEventos(val){
+			if (val){
+		        $.ajax({
+		    		method : "GET",
+		    		url : "buscaDadosEventos",
+		    		data : {
+						'id': val,
+						'idTipoInscricao': $('#tipoInscricao').val()
+		    		},
+		    		success : function(data) {
+                        $("#nameEvento").text(data.evento.nome);
+                        $("#dataInicioEvento").text(data.evento.dataInicioDescricao);
+                        $("#dataFimEvento").text(data.evento.dataFimDescricao);
+                        $("#idSituacaoEvento").text(data.eventoSituacao);
+                        $("#idTipoInscricaoValor").val(data.tipoInscricaoValor.id);
+                        $("#tableDetalhesEvento").removeClass("hide");
 
-	            $("#numero").focus();
-	            
-	        }
 
-	        function buscaDadosEventos(val){
-				if (val){
-			        $.ajax({
-			    		method : "GET",
-			    		url : "buscaDadosEventos",
-			    		data : {
-							'id': val,
-							'idTipoInscricao': 4 //$('#tipoInscricao').val()
-			    		},
-			    		success : function(data) {
-                            console.log(data);
-                            console.log(data.evento.dataInicio);
-                            $("#nameEvento").text(data.evento.nome);
-                            $("#dataInicioEvento").text(data.evento.dataInicioDescricao);
-                            $("#dataFimEvento").text(data.evento.dataFimDescricao);
-                            $("#idSituacaoEvento").text(data.eventoSituacao);
-                            $("#idTipoInscricaoValor").val(data.tipoInscricaoValor.id);
-                            $("#tableDetalhesEvento").removeClass("hide");
-
-                           // $("#divMaxParcelas").select2();
-                           	var valor = data.tipoInscricaoValor.valor;
+                       	var valor = data.tipoInscricaoValor.valor;
                            	
-                            for (var i=1;i<=data.tipoInscricaoValor.maxParcelas;i++){
-								var valorParcela = valor/i;
-								var comboParcela = i+"X - Valor Parcela(s) R$"+valorParcela;
-								$("#maxParcelas").append($("<option></option>").attr("value", i).text(comboParcela));
+                        for (var i=1;i<=data.tipoInscricaoValor.maxParcelas;i++){
+							var valorParcela = valor/i;
+							var comboParcela = i+"X - Valor Parcela(s) R$"+valorParcela;
+							$("#maxParcelas").append($("<option></option>").attr("value", i).text(comboParcela));
 
-                            }
+                        }
 			    			
-			    		},
-			    		error : function(data) {
-			    			console.log(data);
+	    		},
+		    		error : function(data) {
+		    			console.log(data);
 			    			
-			    		}
-			    	})
-				}
-
-        	}
-
-	        function retornoInscricaoSalvar(data){
-				$.notify(data.mensagem, data.type);
-				if (data.type == "success") {
-
-					window.location="${createLink(controller: 'login')}"; 
-					
-				}
-				
+		    		}
+	    		})
 			}
+
+       	};
+
+        function retornoInscricaoSalvar(data){
+			$.notify(data.mensagem, data.type);
+			if (data.type == "success") {
+
+				window.location="${createLink(controller: 'login')}"; 
+					
+			}
+				
+		};
 
 	</script>
 
 </body>
-
 </html>

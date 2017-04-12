@@ -79,7 +79,7 @@
 		<div class="container">
 			<div class="row">
 				<div class="col-lg-12">
-					<h1 class="tagline">XXXVIII Congresso DISCA/JELB</h1>
+					<h1 class="tagline">38º Congresso DISCA/JELB</h1>
 					<h2 class="tagline">Tema: Herdeiros da Reforma</h2>
 				</div>
 			</div>
@@ -93,7 +93,7 @@
 
 		<div class="row">
 			<P align=center>
-				<FONT size=5 face=Verdana><STRONG>XXXVIII Congresso
+				<FONT size=5 face=Verdana><STRONG>38º Congresso
 						DISCA/JELB</STRONG></FONT>
 			</P>
 			<P align=center>
@@ -125,8 +125,7 @@
 			</P>
 			<BR>
 			<P>
-				<FONT size=2 face=Verdana>Serão 200 vagas (colchões) com alas
-					femininas e masculinas, mais o camping para 20 barracas.</FONT>
+				<FONT size=2 face=Verdana>Serão 400 vagas entre alojamentos e suítes. As suítes serão disponibilizadas preferencialmente para casais com filhos</FONT>
 			</P>
 			<UL>
 				<LI><FONT size=2 face=Verdana>Piscinas</FONT>
@@ -172,6 +171,9 @@
 					<FONT size=2 face=Verdana><STRONG>Parcelamento:</STRONG></FONT> <BR>
 					<BR>Para Inscrição Normal : em até 5 vezes <BR>Para
 					Inscrição Barraca: em até 5 vezes
+				</P>
+				<P>
+					<FONT size=2 face=Verdana><STRONG><U>Obs:: A última parcela poderá ser paga no 1º dia do congresso.</U></STRONG></FONT>
 				</P>
 			</div>
 			<div class="col-sm-4">

@@ -2,7 +2,6 @@ dataSource {
     pooled = true
        driverClassName = "com.mysql.jdbc.Driver"
        username = "root"
-       password = "qaz12345"
        dialect = org.hibernate.dialect.MySQL5InnoDBDialect
        properties {
           maxActive = 50
@@ -27,6 +26,7 @@ environments {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/evento"
+			password = "qaz12345"
 			//url = "jdbc:mysql://evento.cpvw2j1ohiub.sa-east-1.rds.amazonaws.com:3306/evento"
         }
     }
@@ -34,12 +34,14 @@ environments {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/evento"
+			password = "qaz12345"
         }
     }
     production {
         dataSource {
             dbCreate = "update" // one of 'create', 'create-drop', 'update', 'validate', ''
             url = "jdbc:mysql://localhost:3306/evento"
+			password = "D1sC@2O17"
         }
     }
 }
