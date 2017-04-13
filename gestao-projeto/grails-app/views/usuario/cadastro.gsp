@@ -442,8 +442,7 @@
 
 	</div>
 	<!-- /.login-box -->
-
-	<script type="text/javascript">
+		<script type="text/javascript">
 		(function() {
 			$(".select2").select2();
 
@@ -534,6 +533,7 @@
         };
 
         function buscaDadosEventos(val){
+        	
 			if (val){
 		        $.ajax({
 		    		method : "GET",
@@ -552,7 +552,10 @@
 
 
                        	var valor = data.tipoInscricaoValor.valor;
-                           	
+                        
+                        $("#maxParcelas").empty();
+						$("#maxParcelas").find('option').remove().end().append('<option value="0">Selecione a Quantidade de Parcelas</option>')
+						$("#maxParcelas").select2("val", ""); 	
                         for (var i=1;i<=data.tipoInscricaoValor.maxParcelas;i++){
 							var valorParcela = valor/i;
 							var comboParcela = i+"X - Valor Parcela(s) R$"+valorParcela;
@@ -581,6 +584,7 @@
 		};
 
 	</script>
+
 
 </body>
 </html>

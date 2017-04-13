@@ -159,12 +159,25 @@ class UsuarioController {
 		
 		if (usuario.password.equals(params.usuario.password2)){
 			usuario.clearErrors()
-			usuario.usuarioGrupo = UsuarioGrupo.get(2)
+			
+			def usuarioGrupo = UsuarioGrupo.get(2)
+			def permissoes = UsuarioGrupoPermissao.createCriteria().list {
+				eq('usuarioGrupo',usuarioGrupo)
+				projections {
+					property("permissao")
+				}
+			}
+			usuario.usuarioGrupo = usuarioGrupo
+			
 			usuario.validate()
 			if(usuario.hasErrors()){
 				println usuario.errors	
 			}else{
 				usuario.save(flush:true)
+				for(permissao in permissoes){
+					new UsuarioPermissao(usuario: usuario, permissao: permissao).save()
+				}
+					
 				retorno = UtilsMensagem.getMensagem("Cadastrado com sucesso!", NotifyType.SUCCESS)
 				retorno["id"] = usuario.id
 				retorno["idTipoInscricao"] = usuario.tipoInscricao.id

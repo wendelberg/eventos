@@ -169,8 +169,8 @@
 				<BR>
 				<P>
 					<FONT size=2 face=Verdana><STRONG>Parcelamento:</STRONG></FONT> <BR>
-					<BR>Para Inscrição Normal : em até 5 vezes <BR>Para
-					Inscrição Barraca: em até 5 vezes
+					<BR>Para Inscrição Normal : em até 4 vezes <BR>Para
+					Inscrição Barraca: em até 4 vezes
 				</P>
 				<P>
 					<FONT size=2 face=Verdana><STRONG><U>Obs:: A última parcela poderá ser paga no 1º dia do congresso.</U></STRONG></FONT>
