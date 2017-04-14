@@ -241,7 +241,7 @@
 				<div class="box-body">
 
 	 				<div class="col-sm-12 col-md-6 form-group">
-						<label>* Nome do Endereço</label>
+						<label>* Tipo de Endereço (Ex: Minha Casa)</label>
 						<div class="input-group">
 							<div class="input-group-addon">
 								<i class="fa fa-laptop"></i>

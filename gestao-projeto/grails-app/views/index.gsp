@@ -225,9 +225,8 @@
 				allowfullscreen></iframe>
 			<BR> <BR>
 			<p>
-				<a class="btn btn-default btn-lg"
-					href="${createLink(controller: 'usuario',action:'cadastrar')}">INSCREVA-SE
-					&raquo;</a>
+				<a class="btn btn-default btn-lg label-success"
+					href="${createLink(controller: 'usuario',action:'cadastrar')}">INSCREVA-SE &raquo;</a>
 			</p>
 
 		</div>
