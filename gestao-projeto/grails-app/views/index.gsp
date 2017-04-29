@@ -136,7 +136,7 @@
 			<P>
 				<FONT size=2 face=Verdana>Obs.1: O congresso será pago via
 					depósito bancário. <BR>Obs.2: O jovem deverá informar o
-					depósito pelo email: tesouraria@disca.com.br <BR>Obs.3: Os
+					depósito pelo email: discajelb@gmail.com <BR>Obs.3: Os
 					comprovantes de depósito deverão ser entregues com a ficha de
 					inscrição, por isso guardem bem para não perder.
 				</FONT>
@@ -184,7 +184,7 @@
 						a inscrição até 14/07:</STRONG></FONT> <BR> <BR>
 				<FONT size=2 face=Verdana>Jovens: R$120,00</FONT> <BR>
 				<FONT size=2 face=Verdana>Criança 0-6: Gratuito</FONT> <BR>
-				<FONT size=2 face=Verdana>Criança 7-11: R$60,00 </FONT> <BR>
+				<FONT size=2 face=Verdana>Criança 7-12: R$60,00 </FONT> <BR>
 				<FONT size=2 face=Verdana>Pastor: Gratuito</FONT> <BR>
 				<FONT size=2 face=Verdana>Esposa de Pastor: R$60,00</FONT> <BR>
 				<FONT size=2 face=Verdana>Estagiário: Gratuito</FONT>
