@@ -289,6 +289,30 @@ class UsuarioController {
 		render retorno as JSON
 	}
 	
+	@Secured("IS_AUTHENTICATED_ANONYMOUSLY")
+	def listarInscritos(){
+		render view: "listaInscritos"
+				
+	}
 	
+/*	@Secured("IS_AUTHENTICATED_ANONYMOUSLY")
+	def buscaListaInscritos(){
+
+		def list = TipoInscricaoValor.createCriteria().list {
+			eq('tipoInscricao.id',Long.valueOf(params.idTipoInscricao))
+			eq('evento',evento)
+			lt('dataInicioVigencia',new Date())
+			gt('dataFimVigencia',new Date())
+		}
+		
+		def retorno = [:]
+		retorno["evento"] = evento
+		retorno["tipoInscricaoValor"] = list.get(0)
+		retorno["eventoSituacao"] = EventoSituacao.get(evento.situacao.id).nome
+		
+		render retorno as JSON
+		
+	}
+	*/
 
 }
