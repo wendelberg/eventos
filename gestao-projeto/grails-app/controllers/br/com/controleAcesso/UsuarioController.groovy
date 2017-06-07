@@ -9,6 +9,7 @@ import br.com.eventos.EventoInscrito;
 import br.com.eventos.EventoSituacao;
 import br.com.eventos.InscricaoParcelas;
 import br.com.eventos.InscricaoSituacao;
+import br.com.eventos.ListaDeInscritos;
 import br.com.eventos.SituacaoParcela;
 import br.com.eventos.TipoInscricaoValor;
 import br.com.teste.enums.NotifyType
@@ -291,28 +292,9 @@ class UsuarioController {
 	
 	@Secured("IS_AUTHENTICATED_ANONYMOUSLY")
 	def listarInscritos(){
-		render view: "listaInscritos"
-				
+		def list = ListaDeInscritos.list()
+		
+		render(view: "listaInscritos", model:[list: list])
 	}
 	
-/*	@Secured("IS_AUTHENTICATED_ANONYMOUSLY")
-	def buscaListaInscritos(){
-
-		def list = TipoInscricaoValor.createCriteria().list {
-			eq('tipoInscricao.id',Long.valueOf(params.idTipoInscricao))
-			eq('evento',evento)
-			lt('dataInicioVigencia',new Date())
-			gt('dataFimVigencia',new Date())
-		}
-		
-		def retorno = [:]
-		retorno["evento"] = evento
-		retorno["tipoInscricaoValor"] = list.get(0)
-		retorno["eventoSituacao"] = EventoSituacao.get(evento.situacao.id).nome
-		
-		render retorno as JSON
-		
-	}
-	*/
-
 }

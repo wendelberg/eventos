@@ -63,6 +63,7 @@
 					<li><a href="${createLink(uri:'/')}">Home</a></li>
 					<li><a href="https://www.facebook.com/sitiocasadooleiro/">Sobre	o Local</a></li>
 					<li><a href="http://www.disca.com.br/contato/">Contato</a></li>
+					<li><a href="${createLink(controller: 'usuario',action:'listarInscritos')}">Lista de Inscritos</a></li>
 					<li><a href="${createLink(controller: 'login')}">Login</a></li>
 					<li><a
 						href="${createLink(controller: 'usuario',action:'cadastrar')}">Inscreva-se</a></li>
