@@ -27,6 +27,33 @@
 						value="${inscricaoParcelas?.numeroParcela}">
 				</div>
 			</div>
+			
+			<div class="col-sm-6 form-group" id="div_situacao">
+				<label>* Situaçao da Parcela</label>
+				<g:if test="${editable}">
+					<select class="form-control select2" name="inscricaoParcelas.situacao">
+						<option value="">Selecione a situação</option>
+						<g:each
+							in="${br.com.eventos.SituacaoParcela.createCriteria().list{ order('nome') }}"
+							var="situacao">
+							<g:if test="${inscricaoParcelas?.situacao?.id == situacao.id}">
+								<option value="${situacao.id}" selected="selected">
+									${situacao.nome}
+								</option>
+							</g:if>
+							<g:else>
+								<option value="${situacao.id}">
+									${situacao.nome}
+								</option>
+							</g:else>
+						</g:each>
+					</select>
+				</g:if>
+				<g:else>
+					<input type="text" class="form-control"
+						value="${inscricaoParcelas?.situacao?.nome}" disabled>
+				</g:else>
+			</div>
 
 		</div>
 		<!-- /.box-body -->
@@ -52,6 +79,7 @@
 <script>
 	$(document).ready(function() {
 
+		$(".select2").select2();
 		$("#nome").focus();
 
 	});

@@ -5,6 +5,7 @@ package br.com.eventos
 import grails.converters.JSON
 import grails.plugin.springsecurity.annotation.Secured
 import br.com.teste.enums.NotifyType
+import br.com.teste.enums.SimNao
 import br.com.teste.utils.UtilsMensagem
 
 @Secured("IS_AUTHENTICATED_FULLY")
@@ -20,10 +21,14 @@ class InscricaoParcelasController {
 	def listar() {
 		 def user = springSecurityService.currentUser
 		 def lista = InscricaoParcelas.createCriteria().list{
-			
-			 eventoInscrito{
-				 eq("inscrito",user)
+		
+			 if(user.usuarioGrupo.realizaBaixa.equals(SimNao.NAO)){
+				 eventoInscrito{
+					 eq("inscrito",user)
+				 }
+			 
 			 }
+		 	 
 			 order("eventoInscrito")
 		 }
 
@@ -80,6 +85,31 @@ class InscricaoParcelasController {
 			inscricaoParcelas.save(flush:true)
 
 			retorno = UtilsMensagem.getMensagem("Salvo com sucesso!", NotifyType.SUCCESS)
+			
+			def user = inscricaoParcelas.eventoInscrito.inscrito
+			
+			def lista = InscricaoParcelas.createCriteria().list{
+				eventoInscrito{
+					eq("inscrito",user)
+				}
+			}
+			
+			boolean pago = true
+			for (inscricao in lista){
+				if(inscricao.situacao.id != 2){
+					pago = false
+				}
+			}
+			
+			if (pago){
+				def evento = inscricaoParcelas.eventoInscrito
+				evento.situacao =  InscricaoSituacao.get(1);
+				evento.save(flush:true)
+			} else{
+				def evento = inscricaoParcelas.eventoInscrito
+				evento.situacao =  InscricaoSituacao.get(3);
+				evento.save(flush:true)
+			}
 		}
 
 		render retorno as JSON

@@ -9,7 +9,7 @@
 <table id="tabela" class="table table-bordered table-striped">
 	<thead>
 		<tr>
-		
+			<th>Inscrito</th>
 			<th>Numero da Parcela</th>
 			<th>Data de Vencimento</th>
 			<th>Valor da Parcela</th>
@@ -19,7 +19,7 @@
 	</thead>
 	<g:each in="${lista}" var="inscricaoParcelas">
 		<tr>
-			
+			<td>${inscricaoParcelas.eventoInscrito.inscrito.nome}</td>
 			<td>${inscricaoParcelas.numeroParcela}</td>
 			<td>${new SimpleDateFormat('dd/MM/yyyy').format(inscricaoParcelas.dataVencimento)}</td>
 			<td>${new DecimalFormat('#0.00').format(inscricaoParcelas.valorParcela)}</td>

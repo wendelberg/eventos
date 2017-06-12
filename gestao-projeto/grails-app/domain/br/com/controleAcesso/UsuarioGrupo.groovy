@@ -6,6 +6,7 @@ class UsuarioGrupo {
 
 	String nome
 	SimNao realizaAtividade
+	SimNao realizaBaixa
 	
     static constraints = {
 		nome blank: false, unique: true
