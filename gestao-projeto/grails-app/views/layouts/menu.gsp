@@ -170,13 +170,19 @@
 							class="fa fa-dashboard"></i> <span>Dashboard</span></a></li>
 
 					<!--  <li><a href="${createLink(uri: '/agenda')}"><i
-							class="fa fa-calendar"></i> <span>Agenda</span></a></li>
+							class="fa fa-calendar"></i> <span>Agenda</span></a></li>-->
 					
 					<li class="treeview"><a href="#"> <i class="fa fa-edit"></i>
 							<span>Eventos</span> <i class="fa fa-angle-left pull-right"></i>
 					</a>
 						<ul class="treeview-menu">
-							<li><a href="${createLink(uri: '/eventoSituacao/index')}"><i
+							<sec:ifAnyGranted roles="ROLE_READ_INSCRICAO_LISTA">
+                                  <li><a href="${createLink(uri: '/listaDeInscritos/index')}">
+                                  <i class="fa fa-circle-o"></i>Lista de Inscritos</a></li>
+                            </sec:ifAnyGranted>
+						
+						
+						<!--	<li><a href="${createLink(uri: '/eventoSituacao/index')}"><i
 									class="fa fa-circle-o"></i>Situação do Evento</a></li>
 						    <li><a href="${createLink(uri: '/inscricaoSituacao/index')}"><i
 									class="fa fa-circle-o"></i>Situação da Inscrição</a></li>
@@ -191,8 +197,8 @@
 						    <li><a href="${createLink(uri: '/tipoInscricao/index')}"><i
 									class="fa fa-circle-o"></i>Tipo de Inscrição</a></li>
 						    <li><a href="${createLink(uri: '/tipoInscricaoValor/index')}"><i
-									class="fa fa-circle-o"></i>Valor Tipo de Inscrição</a></li>
-						</ul></li>-->
+									class="fa fa-circle-o"></i>Valor Tipo de Inscrição</a></li>-->
+						</ul></li>
 
 					<!-- <li class="treeview"><a href="#"> <i class="fa fa-edit"></i>
 							<span>Cadastro</span> <i class="fa fa-angle-left pull-right"></i>
