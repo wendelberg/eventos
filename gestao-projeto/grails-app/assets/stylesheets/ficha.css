@@ -1,0 +1,20 @@
+.assinatura {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 100px;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.campo {
+  border-top: 1px solid;
+  width: 190px;
+}
+
+header {
+  display: flex;
+}
+
+footer {
+  padding-top: 30px;
+}

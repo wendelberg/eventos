@@ -10,6 +10,8 @@ import grails.plugin.springsecurity.annotation.Secured;
 @Secured("IS_AUTHENTICATED_FULLY")
 class ListaDeInscritosController {
 	
+	def springSecurityService
+	
 	@Secured(["ROLE_READ_INSCRICAO_LISTA"])
     def index() {
 	
@@ -40,4 +42,5 @@ class ListaDeInscritosController {
 		
 		render retorno as JSON
 	}
+	
 }

@@ -177,9 +177,13 @@
 					</a>
 						<ul class="treeview-menu">
 							<sec:ifAnyGranted roles="ROLE_READ_INSCRICAO_LISTA">
-                                  <li><a href="${createLink(uri: '/listaDeInscritos/index')}">
-                                  <i class="fa fa-circle-o"></i>Lista de Inscritos</a></li>
+                                <li><a href="${createLink(uri: '/listaDeInscritos/index')}">
+                                <i class="fa fa-circle-o"></i>Lista de Inscritos</a></li>
                             </sec:ifAnyGranted>
+                            <sec:ifAnyGranted roles="ROLE_READ_FICHA_INSCRICAO">
+                        		<li><a href="${createLink(uri: '/fichaDeInscricao/index')}">
+                                 <i class="fa fa-circle-o"></i>Fichas de Inscrição</a></li>  
+                            </sec:ifAnyGranted>  	
 						
 						
 						<!--	<li><a href="${createLink(uri: '/eventoSituacao/index')}"><i
